@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Josias Santos | Microcimento de Alto Padrão</title>
+  <meta name="description" content="Microcimento de alto padrão. Superfícies contínuas, acabamento artesanal e personalização para projetos residenciais e comerciais de luxo." />
+  <meta property="og:title" content="Josias Santos | Microcimento de Alto Padrão" />
+  <meta property="og:description" content="Superfícies que transformam ambientes em experiências." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script>document.documentElement.classList.add('js');</script>
+  <style>
+    :root{
+      --sand:#D8C9B1;
+      --sand-deep:#B59F82;
+      --offwhite:#F6F2EC;
+      --concrete:#A7A49E;
+      --graphite:#1B1C1E;
+      --earth:#7A6553;
+      --wa:#25D366;
+      --ease-out:cubic-bezier(.16,1,.3,1);
+      --serif:'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      --sans:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{background:var(--graphite);color:var(--offwhite);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    img,video{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+    ::selection{background:var(--sand);color:var(--graphite)}
+
+    /* ---------- BACKGROUND VIDEO (whole site) ---------- */
+    .bg-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;filter:saturate(.85) brightness(.55)}
+    .bg-shade{position:fixed;inset:0;z-index:-1;pointer-events:none;
+      background:linear-gradient(180deg,rgba(27,28,30,.55) 0%,rgba(27,28,30,.25) 35%,rgba(27,28,30,.6) 100%)}
+    .grain{position:fixed;inset:-50%;z-index:-1;pointer-events:none;opacity:.06;
+      background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+
+    /* ---------- INTRO ---------- */
+    #intro{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;background:var(--graphite);overflow:hidden;cursor:pointer}
+    .intro-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.5) saturate(.8)}
+    .intro-veil{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(27,28,30,.2),rgba(27,28,30,.85))}
+    .intro-name{position:relative;font-family:var(--serif);font-weight:300;font-size:clamp(2.6rem,8vw,7.5rem);letter-spacing:.12em;text-transform:uppercase;color:var(--offwhite);display:flex;gap:.05em;flex-wrap:wrap;justify-content:center;text-align:center;padding:0 1.5rem}
+    .intro-name .ch{display:inline-block;overflow:hidden;line-height:1.05}
+    .intro-name .ch > span{display:inline-block;transform:translateY(110%)}
+    .intro-name .sp{width:.35em}
+    .intro-skip{position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--concrete);opacity:0}
+
+    /* ---------- NAV ---------- */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:1.4rem clamp(1.25rem,4vw,4rem);transition:background .5s var(--ease-out),padding .5s var(--ease-out),backdrop-filter .5s}
+    .nav.scrolled{background:rgba(27,28,30,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding-top:.9rem;padding-bottom:.9rem}
+    .logo{display:flex;align-items:center;gap:.75rem;font-family:var(--serif);letter-spacing:.18em;text-transform:uppercase;font-size:.95rem}
+    .logo-mark{width:38px;height:38px;border:1px solid var(--sand);display:grid;place-items:center;font-size:.85rem;letter-spacing:.05em;color:var(--sand)}
+    .nav-links{display:flex;gap:2.4rem;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase}
+    .nav-links a{position:relative;opacity:.85;transition:opacity .3s}
+    .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--sand);transition:width .5s var(--ease-out)}
+    .nav-links a:hover{opacity:1}
+    .nav-links a:hover::after{width:100%}
+    .burger{display:none;width:34px;height:24px;position:relative}
+    .burger span{position:absolute;left:0;right:0;height:1px;background:var(--offwhite);transition:transform .4s var(--ease-out),opacity .3s}
+    .burger span:nth-child(1){top:6px}.burger span:nth-child(2){bottom:6px}
+    .menu-open .burger span:nth-child(1){transform:translateY(4px) rotate(45deg)}
+    .menu-open .burger span:nth-child(2){transform:translateY(-4px) rotate(-45deg)}
+    .mobile-menu{position:fixed;inset:0;z-index:45;background:rgba(27,28,30,.96);backdrop-filter:blur(12px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;font-family:var(--serif);font-size:2rem;opacity:0;pointer-events:none;transition:opacity .5s var(--ease-out)}
+    .menu-open .mobile-menu{opacity:1;pointer-events:auto}
+
+    /* ---------- BUTTONS ---------- */
+    .btn{display:inline-flex;align-items:center;gap:.8rem;padding:1.05rem 2.1rem;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500;position:relative;overflow:hidden;transition:color .5s var(--ease-out),border-color .5s;border:1px solid var(--sand)}
+    .btn::before{content:"";position:absolute;inset:0;background:var(--sand);transform:translateY(101%);transition:transform .6s var(--ease-out);z-index:-1}
+    .btn:hover{color:var(--graphite)}
+    .btn:hover::before{transform:translateY(0)}
+    .btn-solid{background:var(--sand);color:var(--graphite)}
+    .btn-solid::before{background:var(--offwhite)}
+    .btn-solid:hover{color:var(--graphite)}
+    .btn svg{width:14px;height:14px;transition:transform .5s var(--ease-out)}
+    .btn:hover svg{transform:translateX(4px)}
+
+    /* ---------- LAYOUT ---------- */
+    section{position:relative;padding:clamp(6rem,14vw,12rem) clamp(1.25rem,6vw,6rem)}
+    .wrap{max-width:1400px;margin:0 auto}
+    .eyebrow{font-size:.7rem;letter-spacing:.36em;text-transform:uppercase;color:var(--sand);margin-bottom:1.6rem;display:flex;align-items:center;gap:1rem}
+    .eyebrow::before{content:"";width:40px;height:1px;background:var(--sand)}
+    h1,h2,h3{font-family:var(--serif);font-weight:300;line-height:1.05;letter-spacing:-.01em}
+    h2{font-size:clamp(2.6rem,5.6vw,5.2rem)}
+    h2 em,h1 em{font-style:italic;color:var(--sand)}
+    .lead{font-size:clamp(1.05rem,1.4vw,1.25rem);color:rgba(246,242,236,.82);max-width:36ch}
+    .glass{background:rgba(27,28,30,.42);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(216,201,177,.16)}
+
+    /* ---------- HERO ---------- */
+    .hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:clamp(4rem,10vh,8rem)}
+    .hero h1{font-size:clamp(3rem,8.4vw,9rem);max-width:13ch;margin-bottom:2.4rem}
+    .hero h1 .line{display:block;overflow:hidden;padding-bottom:.08em}
+    .hero h1 .line > span{display:inline-block;transform:translateY(105%)}
+    .hero-bottom{display:flex;flex-wrap:wrap;gap:2.5rem;align-items:flex-end;justify-content:space-between}
+    .hero-sub{max-width:34ch;font-size:clamp(1rem,1.2vw,1.15rem);color:rgba(246,242,236,.85);opacity:0}
+    .hero-ctas{display:flex;flex-wrap:wrap;gap:1rem;opacity:0}
+    .scroll-cue{position:absolute;right:clamp(1.25rem,6vw,6rem);bottom:3rem;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;writing-mode:vertical-rl;color:var(--concrete)}
+    .scroll-cue::after{content:"";display:block;width:1px;height:70px;margin:1.2rem auto 0;background:linear-gradient(var(--sand),transparent);animation:cue 2.2s var(--ease-out) infinite}
+    @keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+    /* ---------- REVEAL ---------- */
+    html.js .reveal{opacity:0;transform:translateY(40px);transition:opacity 1.2s var(--ease-out),transform 1.2s var(--ease-out)}
+    html.js .reveal.in{opacity:1;transform:none}
+    html.js .reveal-delay-1{transition-delay:.12s}
+    html.js .reveal-delay-2{transition-delay:.24s}
+    html.js .reveal-delay-3{transition-delay:.36s}
+
+    /* ---------- SOBRE ---------- */
+    .about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(3rem,7vw,8rem);align-items:center}
+    .about-pillars{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(216,201,177,.15);margin-top:3.5rem}
+    .about-pillars div{background:rgba(27,28,30,.7);backdrop-filter:blur(10px);padding:1.8rem 1.6rem}
+    .about-pillars h3{font-size:1.45rem;margin-bottom:.4rem}
+    .about-pillars p{font-size:.9rem;color:rgba(246,242,236,.7)}
+    .about-card{padding:3rem;position:relative}
+    .about-card blockquote{font-family:var(--serif);font-size:clamp(1.6rem,2.4vw,2.2rem);font-style:italic;font-weight:300;line-height:1.3;color:var(--offwhite)}
+    .about-card .sig{margin-top:2rem;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--sand)}
+
+    /* ---------- SERVIÇOS ---------- */
+    .services-head{display:flex;justify-content:space-between;align-items:flex-end;gap:3rem;flex-wrap:wrap;margin-bottom:4.5rem}
+    .services{display:grid;grid-template-columns:repeat(12,1fr);gap:1.25rem}
+    .service{position:relative;overflow:hidden;min-height:340px;display:flex;flex-direction:column;justify-content:flex-end;padding:2rem;border:1px solid rgba(216,201,177,.14);background:linear-gradient(160deg,rgba(122,101,83,.35),rgba(27,28,30,.85));transition:border-color .6s var(--ease-out)}
+    .service::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 10%,rgba(216,201,177,.18),transparent 55%);transition:transform 1.2s var(--ease-out);transform:scale(1)}
+    .service:hover{border-color:rgba(216,201,177,.5)}
+    .service:hover::before{transform:scale(1.15)}
+    .service .num{position:absolute;top:1.6rem;left:2rem;font-family:var(--serif);font-size:1rem;color:var(--sand);opacity:.8}
+    .service h3{font-size:clamp(1.7rem,2.4vw,2.3rem);margin-bottom:.7rem;position:relative}
+    .service p{font-size:.92rem;color:rgba(246,242,236,.72);position:relative;max-width:34ch}
+    .s1{grid-column:span 7;min-height:460px}
+    .s2{grid-column:span 5}
+    .s3{grid-column:span 4}
+    .s4{grid-column:span 4}
+    .s5{grid-column:span 4}
+    .s6{grid-column:span 6}
+    .s7{grid-column:span 6}
+
+    /* ---------- GALERIA ---------- */
+    .gallery-head{margin-bottom:4rem;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:2rem}
+    .gallery{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(200px,auto);gap:1.25rem}
+    .tile{position:relative;overflow:hidden;background:var(--earth)}
+    .tile .media{position:absolute;inset:-8% 0;width:100%;height:116%;object-fit:cover;transform:scale(1.08);transition:transform 2.2s var(--ease-out),filter 1.2s;will-change:transform}
+    .tile:hover .media{transform:scale(1.2)}
+    .tile-caption{position:absolute;left:0;right:0;bottom:0;padding:1.6rem 1.8rem;background:linear-gradient(transparent,rgba(27,28,30,.85));display:flex;justify-content:space-between;align-items:flex-end;gap:1rem}
+    .tile-caption h4{font-family:var(--serif);font-size:1.6rem;font-weight:300}
+    .tile-caption span{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--sand)}
+    .texture{background:
+      radial-gradient(circle at 30% 20%,rgba(255,255,255,.12),transparent 40%),
+      radial-gradient(circle at 75% 80%,rgba(0,0,0,.25),transparent 50%),
+      linear-gradient(135deg,#B8AE9F,#8C8474 55%,#6D6558)}
+    .texture-2{background:
+      radial-gradient(circle at 70% 25%,rgba(255,255,255,.1),transparent 45%),
+      linear-gradient(200deg,#CBBFAE,#9E9383 60%,#5E5649)}
+    .texture-3{background:
+      radial-gradient(circle at 20% 80%,rgba(255,255,255,.08),transparent 45%),
+      linear-gradient(120deg,#3A3B3E,#5A5B5E 50%,#2A2B2D)}
+    .g1{grid-column:span 7;grid-row:span 2;min-height:620px}
+    .g2{grid-column:span 5;min-height:300px}
+    .g3{grid-column:span 5;min-height:300px}
+    .g4{grid-column:span 4;min-height:360px;margin-top:4rem}
+    .g5{grid-column:span 8;min-height:360px}
+    .placeholder-note{position:absolute;top:1.2rem;right:1.2rem;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(246,242,236,.6);border:1px dashed rgba(246,242,236,.35);padding:.35rem .6rem}
+
+    /* ---------- DIFERENCIAIS ---------- */
+    .diff-title{max-width:18ch;margin-bottom:5rem}
+    .diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(216,201,177,.14)}
+    .diff{background:rgba(27,28,30,.72);backdrop-filter:blur(10px);padding:3rem 2.4rem;min-height:250px;transition:background .6s var(--ease-out)}
+    .diff:hover{background:rgba(42,40,38,.85)}
+    .diff .ico{width:34px;height:34px;margin-bottom:2rem;color:var(--sand)}
+    .diff h3{font-size:1.7rem;margin-bottom:.8rem}
+    .diff p{font-size:.92rem;color:rgba(246,242,236,.7)}
+
+    /* ---------- PROCESSO ---------- */
+    .process{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;margin-top:4rem}
+    .process::before{content:"";position:absolute;top:22px;left:0;right:0;height:1px;background:rgba(216,201,177,.2)}
+    .process-line{position:absolute;top:22px;left:0;height:1px;background:var(--sand);width:0}
+    .step{position:relative;padding-right:2rem}
+    .step .dot{width:45px;height:45px;border-radius:50%;border:1px solid var(--sand);display:grid;place-items:center;font-family:var(--serif);font-size:1rem;background:var(--graphite);color:var(--sand);position:relative;z-index:1;margin-bottom:2.2rem}
+    .step h3{font-size:1.6rem;margin-bottom:.6rem}
+    .step p{font-size:.88rem;color:rgba(246,242,236,.68);max-width:24ch}
+
+    /* ---------- DEPOIMENTOS ---------- */
+    .testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem}
+    .quote{padding:2.6rem}
+    .quote p{font-family:var(--serif);font-size:1.45rem;font-style:italic;font-weight:300;line-height:1.4;margin-bottom:1.6rem}
+    .quote cite{font-style:normal;font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--sand)}
+    .testimonials-empty{padding:3.5rem;text-align:center;font-family:var(--serif);font-size:1.6rem;font-style:italic;color:rgba(246,242,236,.75)}
+
+    /* ---------- CTA ---------- */
+    .cta{text-align:center;padding-top:clamp(8rem,16vw,14rem);padding-bottom:clamp(8rem,16vw,14rem)}
+    .cta h2{font-size:clamp(2.8rem,7vw,7rem);max-width:15ch;margin:0 auto 2rem}
+    .cta p{margin:0 auto 3rem;max-width:44ch;color:rgba(246,242,236,.8);font-size:1.1rem}
+
+    /* ---------- FOOTER ---------- */
+    footer{padding:5rem clamp(1.25rem,6vw,6rem) 2.5rem;border-top:1px solid rgba(216,201,177,.14);background:rgba(27,28,30,.8);backdrop-filter:blur(12px)}
+    .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:3rem;max-width:1400px;margin:0 auto 4rem}
+    .foot-grid h4{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--sand);margin-bottom:1.3rem;font-weight:500}
+    .foot-grid ul{list-style:none;display:grid;gap:.6rem;font-size:.9rem;color:rgba(246,242,236,.72)}
+    .foot-grid a:hover{color:var(--sand)}
+    .foot-brand p{font-size:.9rem;color:rgba(246,242,236,.68);margin-top:1.4rem;max-width:30ch}
+    .foot-bottom{max-width:1400px;margin:0 auto;padding-top:2rem;border-top:1px solid rgba(216,201,177,.1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.75rem;color:rgba(246,242,236,.5);letter-spacing:.05em}
+
+    /* ---------- FLOATING ---------- */
+    .fab{position:fixed;bottom:1.5rem;z-index:60;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;box-shadow:0 12px 30px rgba(0,0,0,.35);transition:transform .5s var(--ease-out)}
+    .fab:hover{transform:translateY(-4px) scale(1.04)}
+    .fab-wa{left:1.5rem;background:var(--wa);color:#fff}
+    .fab-wa svg{width:28px;height:28px}
+    .fab-ai{right:1.5rem;background:var(--sand);color:var(--graphite)}
+    .fab-ai svg{width:24px;height:24px}
+    .fab-ai .pulse{position:absolute;inset:-5px;border-radius:50%;border:1px solid var(--sand);animation:pulse 2.6s var(--ease-out) infinite}
+    @keyframes pulse{0%{transform:scale(.9);opacity:.8}100%{transform:scale(1.5);opacity:0}}
+
+    /* ---------- CHAT ---------- */
+    .chat{position:fixed;right:1.5rem;bottom:6.5rem;z-index:70;width:min(390px,calc(100vw - 2rem));height:min(580px,70vh);display:flex;flex-direction:column;background:rgba(22,23,25,.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(216,201,177,.25);box-shadow:0 30px 80px rgba(0,0,0,.5);opacity:0;transform:translateY(20px) scale(.98);pointer-events:none;transition:opacity .5s var(--ease-out),transform .5s var(--ease-out)}
+    .chat.open{opacity:1;transform:none;pointer-events:auto}
+    .chat-head{padding:1.1rem 1.25rem;border-bottom:1px solid rgba(216,201,177,.15);display:flex;align-items:center;justify-content:space-between}
+    .chat-head .who{display:flex;align-items:center;gap:.75rem}
+    .chat-avatar{width:36px;height:36px;border:1px solid var(--sand);display:grid;place-items:center;font-family:var(--serif);color:var(--sand);font-size:.95rem}
+    .chat-head strong{font-family:var(--serif);font-weight:400;font-size:1.15rem;display:block;line-height:1}
+    .chat-head small{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--concrete)}
+    .chat-close{font-size:1.4rem;line-height:1;color:var(--concrete);padding:.3rem .5rem}
+    .chat-close:hover{color:var(--offwhite)}
+    .chat-body{flex:1;overflow-y:auto;padding:1.25rem;display:flex;flex-direction:column;gap:.85rem;scroll-behavior:smooth}
+    .msg{max-width:88%;padding:.8rem 1rem;font-size:.9rem;line-height:1.55;animation:msgIn .5s var(--ease-out)}
+    .msg.bot{background:rgba(216,201,177,.09);border:1px solid rgba(216,201,177,.14);align-self:flex-start}
+    .msg.user{background:var(--sand);color:var(--graphite);align-self:flex-end}
+    .msg a.wa-link{display:inline-block;margin-top:.7rem;padding:.7rem 1rem;background:var(--wa);color:#fff;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;font-weight:500}
+    .typing{display:flex;gap:4px;padding:.9rem 1rem;align-self:flex-start}
+    .typing i{width:6px;height:6px;border-radius:50%;background:var(--sand);opacity:.4;animation:blink 1.2s infinite}
+    .typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+    @keyframes blink{0%,100%{opacity:.2}50%{opacity:1}}
+    @keyframes msgIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+    .quick{display:flex;flex-wrap:wrap;gap:.5rem;padding:0 1.25rem .9rem}
+    .quick button{font-size:.72rem;padding:.5rem .85rem;border:1px solid rgba(216,201,177,.35);color:var(--sand);transition:background .3s,color .3s}
+    .quick button:hover{background:var(--sand);color:var(--graphite)}
+    .chat-form{display:flex;border-top:1px solid rgba(216,201,177,.15)}
+    .chat-form input{flex:1;background:transparent;border:0;outline:none;padding:1rem 1.25rem;color:var(--offwhite);font:inherit;font-size:.9rem}
+    .chat-form input::placeholder{color:rgba(246,242,236,.4)}
+    .chat-form button{padding:0 1.25rem;color:var(--sand);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase}
+    .chat-form button:hover{color:var(--offwhite)}
+
+    /* ---------- CURSOR ---------- */
+    .cursor{position:fixed;top:0;left:0;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:var(--sand);pointer-events:none;z-index:200;mix-blend-mode:difference;transition:width .4s var(--ease-out),height .4s var(--ease-out),margin .4s var(--ease-out),opacity .3s}
+    .cursor.hover{width:54px;height:54px;margin:-27px 0 0 -27px;opacity:.35}
+    @media (pointer:fine){ .cursor{display:block} }
+    @media (pointer:coarse){ .cursor{display:none} }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width:1024px){
+      .nav-links{display:none}
+      .burger{display:block}
+      .services .s1,.services .s2,.services .s3,.services .s4,.services .s5,.services .s6,.services .s7{grid-column:span 12;min-height:320px}
+      .gallery .g1,.gallery .g2,.gallery .g3,.gallery .g4,.gallery .g5{grid-column:span 12;grid-row:auto;min-height:340px;margin-top:0}
+      .diff-grid{grid-template-columns:1fr 1fr}
+      .process{grid-template-columns:1fr 1fr;row-gap:3.5rem}
+      .process::before,.process-line{display:none}
+      .about-grid{grid-template-columns:1fr}
+      .foot-grid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:640px){
+      .diff-grid,.about-pillars{grid-template-columns:1fr}
+      .process{grid-template-columns:1fr}
+      .scroll-cue{display:none}
+      .btn{width:100%;justify-content:center}
+      .hero-ctas{width:100%}
+      .foot-grid{grid-template-columns:1fr}
+      .chat{right:.75rem;bottom:5.5rem}
+      .fab-wa{left:1rem;bottom:1rem}
+      .fab-ai{right:1rem;bottom:1rem}
+    }
+    @media (prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important}
+      html{scroll-behavior:auto}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Vídeo de fundo do site inteiro (sem áudio) -->
+  <video class="bg-video" id="bgVideo" src="video.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+  <div class="bg-shade"></div>
+  <div class="grain"></div>
+
+  <!-- ============ INTRO ============ -->
+  <div id="intro" aria-label="Abertura">
+    <video class="intro-video" id="introVideo" src="video.mp4" autoplay muted loop playsinline></video>
+    <div class="intro-veil"></div>
+    <h1 class="intro-name" id="introName">Josias Santos</h1>
+    <div class="intro-skip" id="introSkip">Clique para entrar</div>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <a href="#top" class="logo" aria-label="Josias Santos - início">
+      <span class="logo-mark">JS</span>
+      <span>Josias Santos</span>
+    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#galeria">Projetos</a>
+      <a href="#processo">Processo</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Abrir menu"><span></span><span></span></button>
+  </header>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#galeria">Projetos</a>
+    <a href="#processo">Processo</a>
+    <a href="#contato">Contato</a>
+  </div>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="wrap" style="width:100%">
+        <div class="eyebrow" data-hero-eyebrow style="opacity:0">Microcimento de alto padrão</div>
+        <h1>
+          <span class="line"><span>Superfícies que</span></span>
+          <span class="line"><span>transformam ambientes</span></span>
+          <span class="line"><span><em>em experiências.</em></span></span>
+        </h1>
+        <div class="hero-bottom">
+          <p class="hero-sub" id="heroSub">Microcimento de alto padrão. Sofisticação, personalidade e acabamento impecável em cada detalhe.</p>
+          <div class="hero-ctas" id="heroCtas">
+            <a href="#contato" class="btn btn-solid" data-open-chat-schedule>Solicitar orçamento
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="#galeria" class="btn">Explorar projetos
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-cue">Role</div>
+    </section>
+
+    <!-- ============ SOBRE ============ -->
+    <section id="sobre">
+      <div class="wrap about-grid">
+        <div>
+          <div class="eyebrow reveal">Sobre o especialista</div>
+          <h2 class="reveal reveal-delay-1">A arte de <em>transformar</em> superfícies.</h2>
+          <p class="lead reveal reveal-delay-2" style="margin-top:2rem">Atuo com aplicação especializada de microcimento em projetos residenciais e comerciais de alto padrão, onde cada detalhe importa e cada superfície precisa contar a mesma história que o restante do ambiente.</p>
+          <div class="about-pillars reveal reveal-delay-2">
+            <div><h3>Aplicação especializada</h3><p>Execução feita por quem entende o material em profundidade.</p></div>
+            <div><h3>Atenção aos detalhes</h3><p>Juntas invisíveis, transições limpas e acabamento preciso.</p></div>
+            <div><h3>Acabamento artesanal</h3><p>Cada camada é aplicada e refinada à mão, com paciência.</p></div>
+            <div><h3>Projetos personalizados</h3><p>Tonalidade, textura e intensidade pensadas para o seu espaço.</p></div>
+          </div>
+        </div>
+        <div class="about-card glass reveal reveal-delay-3">
+          <blockquote>“Uma superfície bem executada não se nota à primeira vista. Ela simplesmente faz o ambiente parecer completo.”</blockquote>
+          <div class="sig">Josias Santos · Microcimento</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVIÇOS ============ -->
+    <section id="servicos">
+      <div class="wrap">
+        <div class="services-head">
+          <div>
+            <div class="eyebrow reveal">Serviços</div>
+            <h2 class="reveal reveal-delay-1">Soluções para <em>cada</em> ambiente.</h2>
+          </div>
+          <p class="lead reveal reveal-delay-2">Do piso à parede, do banheiro à fachada comercial, a aplicação é adaptada ao uso, à luz e à rotina de cada espaço.</p>
+        </div>
+
+        <div class="services">
+          <article class="service s1 reveal"><span class="num">01</span><h3>Microcimento em pisos</h3><p>Superfícies contínuas, sem juntas, com resistência ao tráfego intenso e acabamento sofisticado.</p></article>
+          <article class="service s2 reveal reveal-delay-1"><span class="num">02</span><h3>Microcimento em paredes</h3><p>Texturas sutis que trazem profundidade e calma para salas, quartos e áreas de destaque.</p></article>
+          <article class="service s3 reveal"><span class="num">03</span><h3>Banheiros e áreas molhadas</h3><p>Sistema indicado para o uso, avaliado no local, com acabamento elegante e contínuo.</p></article>
+          <article class="service s4 reveal reveal-delay-1"><span class="num">04</span><h3>Cozinhas e bancadas</h3><p>Bancadas e revestimentos com aparência de pedra, personalizados em tom e veio.</p></article>
+          <article class="service s5 reveal reveal-delay-2"><span class="num">05</span><h3>Escadas e ambientes integrados</h3><p>Continuidade visual entre pisos, degraus e paredes, criando fluidez entre os espaços.</p></article>
+          <article class="service s6 reveal"><span class="num">06</span><h3>Projetos comerciais</h3><p>Lojas, escritórios e showrooms com identidade marcante e manutenção simplificada.</p></article>
+          <article class="service s7 reveal reveal-delay-1"><span class="num">07</span><h3>Projetos residenciais de luxo</h3><p>Acabamento exclusivo para residências que exigem precisão, discrição e personalidade.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALERIA ============ -->
+    <section id="galeria">
+      <div class="wrap">
+        <div class="gallery-head">
+          <div>
+            <div class="eyebrow reveal">Galeria de projetos</div>
+            <h2 class="reveal reveal-delay-1">A textura é <em>protagonista.</em></h2>
+          </div>
+          <p class="lead reveal reveal-delay-2">Projetos selecionados, com foco na continuidade da superfície e na presença do material.</p>
+        </div>
+
+        <div class="gallery">
+          <!-- Substitua as áreas .texture pelas fotos reais dos projetos (ex.: <img class="media" src="fotos/projeto1.jpg" alt="...">) -->
+          <figure class="tile g1 reveal">
+            <video class="media" src="video.mp4" autoplay muted loop playsinline style="object-fit:cover"></video>
+            <figcaption class="tile-caption"><h4>Residência · Sala integrada</h4><span>Projeto em destaque</span></figcaption>
+          </figure>
+          <figure class="tile texture-2 g2 reveal reveal-delay-1" data-parallax>
+            <span class="placeholder-note">Foto do projeto</span>
+            <figcaption class="tile-caption"><h4>Banheiro de suíte</h4><span>Área molhada</span></figcaption>
+          </figure>
+          <figure class="tile texture-3 g3 reveal reveal-delay-2" data-parallax>
+            <span class="placeholder-note">Foto do projeto</span>
+            <figcaption class="tile-caption"><h4>Escada e circulação</h4><span>Ambiente integrado</span></figcaption>
+          </figure>
+          <figure class="tile texture g4 reveal" data-parallax>
+            <span class="placeholder-note">Antes / Depois</span>
+            <figcaption class="tile-caption"><h4>Cozinha e bancada</h4><span>Personalização</span></figcaption>
+          </figure>
+          <figure class="tile texture-3 g5 reveal reveal-delay-1" data-parallax>
+            <span class="placeholder-note">Foto do projeto</span>
+            <figcaption class="tile-caption"><h4>Showroom comercial</h4><span>Projeto corporativo</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DIFERENCIAIS ============ -->
+    <section id="diferenciais">
+      <div class="wrap">
+        <div class="eyebrow reveal">Diferenciais</div>
+        <h2 class="diff-title reveal reveal-delay-1">Não é apenas revestimento. É <em>identidade arquitetônica.</em></h2>
+        <div class="diff-grid">
+          <div class="diff reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M4 4h16v16H4zM4 12h16M12 4v16"/></svg><h3>Acabamento exclusivo</h3><p>Textura e tom desenvolvidos para cada projeto, sem padrões repetidos.</p></div>
+          <div class="diff reveal reveal-delay-1"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 12h18M3 6h18M3 18h18"/></svg><h3>Superfícies contínuas</h3><p>Visual sem emendas que valoriza a arquitetura e amplia a sensação de espaço.</p></div>
+          <div class="diff reveal reveal-delay-2"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="8"/><path d="M12 4v16M4 12h16"/></svg><h3>Estética contemporânea</h3><p>Linguagem minimalista que combina com arquitetura de traço limpo e clássica.</p></div>
+          <div class="diff reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M4 20L20 4M8 4h12v12"/></svg><h3>Versatilidade de aplicação</h3><p>Pisos, paredes, bancadas, escadas e áreas molhadas em um mesmo padrão visual.</p></div>
+          <div class="diff reveal reveal-delay-1"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM8 12h8"/></svg><h3>Personalização de tonalidades</h3><p>Mistura de cores e intensidade ajustada à luz e à paleta do seu imóvel.</p></div>
+          <div class="diff reveal reveal-delay-2"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M5 12l4 4 10-10"/></svg><h3>Execução cuidadosa</h3><p>Preparação e aplicação com rigor, do primeiro demão ao acabamento final.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESSO ============ -->
+    <section id="processo">
+      <div class="wrap">
+        <div class="eyebrow reveal">Processo de execução</div>
+        <h2 class="reveal reveal-delay-1">Do projeto à <em>entrega.</em></h2>
+        <div class="process" id="process">
+          <div class="process-line" id="processLine"></div>
+          <div class="step reveal"><div class="dot">01</div><h3>Consultoria e planejamento</h3><p>Visita técnica, escuta do projeto e definição de tonalidade e acabamento.</p></div>
+          <div class="step reveal reveal-delay-1"><div class="dot">02</div><h3>Preparação da superfície</h3><p>Diagnóstico e preparo do suporte, etapa decisiva para a durabilidade.</p></div>
+          <div class="step reveal reveal-delay-2"><div class="dot">03</div><h3>Aplicação do microcimento</h3><p>Camadas aplicadas com técnica e controle de espessura e cor.</p></div>
+          <div class="step reveal reveal-delay-3"><div class="dot">04</div><h3>Refinamento e acabamento</h3><p>Lixamento, selagem e revisão minuciosa de cada detalhe.</p></div>
+          <div class="step reveal reveal-delay-3"><div class="dot">05</div><h3>Entrega do projeto</h3><p>Orientações de uso e manutenção para preservar o acabamento.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DEPOIMENTOS ============ -->
+    <section id="depoimentos">
+      <div class="wrap">
+        <div class="eyebrow reveal">Depoimentos</div>
+        <h2 class="reveal reveal-delay-1">Quem já viveu a <em>experiência.</em></h2>
+        <div class="testimonials" id="testimonials" style="margin-top:4rem">
+          <!-- Adicione aqui apenas avaliações reais de clientes. Exemplo:
+          { text: "Depoimento real do cliente", name: "Nome do cliente", place: "Cidade" } -->
+        </div>
+        <p class="testimonials-empty reveal" id="testimonialsEmpty">Em breve, os relatos dos clientes que confiaram seus projetos à nossa execução.</p>
+      </div>
+    </section>
+
+    <!-- ============ CTA FINAL ============ -->
+    <section class="cta" id="contato">
+      <div class="wrap">
+        <div class="eyebrow reveal" style="justify-content:center">Contato</div>
+        <h2 class="reveal reveal-delay-1">Seu próximo projeto merece um <em>acabamento extraordinário.</em></h2>
+        <p class="reveal reveal-delay-2">Transforme seus ambientes com a sofisticação e personalidade do microcimento.</p>
+        <div class="reveal reveal-delay-3" style="display:flex;justify-content:center;flex-wrap:wrap;gap:1rem">
+          <a class="btn btn-solid" href="https://wa.me/5511949139168?text=Ol%C3%A1%2C%20Josias!%20Gostaria%20de%20falar%20com%20um%20especialista%20sobre%20microcimento." target="_blank" rel="noopener">Fale com um especialista
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn" href="https://instagram.com/microcimentofino" target="_blank" rel="noopener">Instagram @microcimentofino</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ RODAPÉ ============ -->
+  <footer>
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="logo"><span class="logo-mark">JS</span><span>Josias Santos</span></a>
+        <p>Microcimento de alto padrão. Superfícies que transformam ambientes em experiências.</p>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="https://wa.me/5511949139168" target="_blank" rel="noopener">WhatsApp: (11) 94913-9168</a></li>
+          <li><a href="https://instagram.com/microcimentofino" target="_blank" rel="noopener">Instagram: @microcimentofino</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Serviços</h4>
+        <ul>
+          <li>Pisos e paredes</li>
+          <li>Banheiros e áreas molhadas</li>
+          <li>Cozinhas e bancadas</li>
+          <li>Escadas e integrados</li>
+          <li>Projetos comerciais e residenciais</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Localização</h4>
+        <ul>
+          <li>Atendimento em São Paulo e região</li>
+          <li>Atendimento sob agendamento</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Josias Santos · Microcimento Fino. Todos os direitos reservados.</span>
+      <span>Projetos sob avaliação técnica prévia.</span>
+    </div>
+  </footer>
+
+  <!-- ============ BOTÕES FLUTUANTES ============ -->
+  <a class="fab fab-wa" href="https://wa.me/5511949139168?text=Ol%C3%A1%2C%20Josias!" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.8 11.8 0 0012 0C5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.5 5.9L0 24l6.3-1.6a11.9 11.9 0 005.7 1.5c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.4-8.5zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 012.2 12C2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9a9.7 9.7 0 012.9 6.9c0 5.4-4.4 9.8-9.8 9.8zm5.4-7.3c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.7.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/></svg>
+  </a>
+
+  <button class="fab fab-ai" id="chatToggle" aria-label="Abrir assistente virtual" aria-expanded="false">
+    <span class="pulse"></span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 5h16v11H9l-5 4z"/></svg>
+  </button>
+
+  <!-- ============ ASSISTENTE VIRTUAL ============ -->
+  <div class="chat" id="chat" role="dialog" aria-label="Assistente virtual Josias Santos">
+    <div class="chat-head">
+      <div class="who">
+        <div class="chat-avatar">JS</div>
+        <div><strong>Assistente</strong><small>Tire dúvidas · Agende uma visita</small></div>
+      </div>
+      <button class="chat-close" id="chatClose" aria-label="Fechar">×</button>
+    </div>
+    <div class="chat-body" id="chatBody"></div>
+    <div class="quick" id="chatQuick"></div>
+    <form class="chat-form" id="chatForm" autocomplete="off">
+      <input id="chatInput" type="text" placeholder="Digite sua dúvida..." aria-label="Mensagem" maxlength="300" />
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <div class="cursor" id="cursor"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+  (function(){
+    /* ---------- CONFIG ---------- */
+    const WA_NUMBER = '5511949139168';
+    const WA_BASE = 'https://wa.me/' + WA_NUMBER + '?text=';
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* Vídeo sempre sem áudio */
+    document.querySelectorAll('video').forEach(v => { v.muted = true; v.defaultMuted = true; v.setAttribute('muted',''); });
+    const playAll = () => document.querySelectorAll('video').forEach(v => { const p = v.play(); if (p && p.catch) p.catch(()=>{}); });
+    playAll();
+
+    const hasGSAP = typeof window.gsap !== 'undefined';
+    if (hasGSAP && window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
+
+    /* ---------- INTRO ---------- */
+    const intro = document.getElementById('intro');
+    const introName = document.getElementById('introName');
+    const skip = document.getElementById('introSkip');
+    document.body.style.overflow = 'hidden';
+
+    // Quebra o nome em letras
+    const text = introName.textContent.trim();
+    introName.setAttribute('aria-label', text);
+    introName.innerHTML = [...text].map(c => c === ' ' ? '<span class="sp"></span>' : '<span class="ch"><span>' + c + '</span></span>').join('');
+    const letters = introName.querySelectorAll('.ch > span');
+
+    let introDone = false;
+    function finishIntro(){
+      if (introDone) return;
+      introDone = true;
+      if (hasGSAP) {
+        gsap.to(intro, {opacity:0, duration:1.1, ease:'power2.inOut', onComplete(){ intro.style.display='none'; document.body.style.overflow=''; }});
+        gsap.to('.bg-video', {filter:'saturate(.85) brightness(.55)', duration:1.6});
+      } else {
+        intro.style.display = 'none'; document.body.style.overflow = '';
+      }
+      heroIn();
+    }
+
+    if (hasGSAP) {
+      const tl = gsap.timeline({delay:.3});
+      tl.to(intro.querySelector('.intro-video'), {scale:1, duration:2.4, ease:'power2.out'}, 0)
+        .fromTo(intro.querySelector('.intro-video'), {scale:1.12}, {scale:1, duration:3, ease:'power2.out'}, 0)
+        .to(letters, {y:'0%', duration:1.1, ease:'power4.out', stagger:.07}, .4)
+        .to(skip, {opacity:1, duration:1, ease:'power2.out'}, 1.8)
+        .add(() => {}, '+=1.6')
+        .call(finishIntro, null, '+=0.2');
+      // Entrar ao clicar
+      intro.addEventListener('click', () => { tl.progress(1); finishIntro(); });
+      // Garantia caso a animação demore
+      setTimeout(finishIntro, 7000);
+    } else {
+      letters.forEach(l => l.style.transform = 'translateY(0)');
+      setTimeout(finishIntro, 2500);
+      intro.addEventListener('click', finishIntro);
+    }
+
+    /* ---------- HERO ---------- */
+    function heroIn(){
+      if (!hasGSAP) {
+        document.querySelectorAll('.hero h1 .line > span').forEach(s => s.style.transform='none');
+        document.querySelector('[data-hero-eyebrow]').style.opacity = 1;
+        document.getElementById('heroSub').style.opacity = 1;
+        document.getElementById('heroCtas').style.opacity = 1;
+        return;
+      }
+      const t = gsap.timeline({defaults:{ease:'power4.out'}});
+      t.to('[data-hero-eyebrow]', {opacity:1, duration:1}, 0)
+       .to('.hero h1 .line > span', {y:'0%', duration:1.5, stagger:.14}, .15)
+       .to('#heroSub', {opacity:1, duration:1.4, ease:'power2.out'}, .9)
+       .to('#heroCtas', {opacity:1, duration:1.4, ease:'power2.out'}, 1.05);
+      if (!reduce) gsap.to('.hero h1', {yPercent:-8, ease:'none', scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}});
+    }
+    // Hero começa com texto fora da tela; o GSAP revela após o intro
+    if (!hasGSAP) heroIn();
+
+    /* ---------- NAV ---------- */
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 60);
+    window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+    const burger = document.getElementById('burger');
+    const mobile = document.getElementById('mobileMenu');
+    burger.addEventListener('click', () => {
+      const open = document.body.classList.toggle('menu-open');
+      burger.setAttribute('aria-expanded', open);
+    });
+    mobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => document.body.classList.remove('menu-open')));
+
+    /* ---------- SCROLL REVEAL ---------- */
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:.12, rootMargin:'0px 0px -6% 0px'});
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    /* ---------- PARALLAX & PROCESSO ---------- */
+    if (hasGSAP && window.ScrollTrigger && !reduce) {
+      document.querySelectorAll('[data-parallax] ').forEach(el => {
+        gsap.fromTo(el, {yPercent:-6}, {yPercent:6, ease:'none', scrollTrigger:{trigger:el, start:'top bottom', end:'bottom top', scrub:true}});
+      });
+      document.querySelectorAll('.tile .media').forEach(v => {
+        gsap.fromTo(v, {scale:1.12}, {scale:1.02, ease:'none', scrollTrigger:{trigger:v.parentElement, start:'top bottom', end:'bottom top', scrub:true}});
+      });
+      gsap.fromTo('#processLine', {width:0}, {width:'100%', ease:'none', scrollTrigger:{trigger:'#process', start:'top 70%', end:'bottom 60%', scrub:true}});
+      gsap.utils.toArray('.service').forEach(card => {
+        gsap.fromTo(card, {filter:'brightness(.7)'}, {filter:'brightness(1)', scrollTrigger:{trigger:card, start:'top 85%', end:'top 40%', scrub:true}});
+      });
+    }
+
+    /* ---------- DEPOIMENTOS (apenas avaliações reais) ---------- */
+    const REAL_TESTIMONIALS = []; // ex.: [{text:'...', name:'...', place:'...'}]
+    if (REAL_TESTIMONIALS.length) {
+      const box = document.getElementById('testimonials');
+      REAL_TESTIMONIALS.forEach(t => {
+        const q = document.createElement('figure'); q.className = 'quote glass reveal';
+        const p = document.createElement('p'); p.textContent = '“' + t.text + '”';
+        const c = document.createElement('cite'); c.textContent = t.name + (t.place ? ' · ' + t.place : '');
+        q.append(p, c); box.appendChild(q); io.observe(q);
+      });
+      document.getElementById('testimonialsEmpty').remove();
+    }
+
+    /* ---------- CURSOR ---------- */
+    const cursor = document.getElementById('cursor');
+    if (window.matchMedia('(pointer:fine)').matches) {
+      let x = 0, y = 0, cx = 0, cy = 0;
+      window.addEventListener('mousemove', e => { x = e.clientX; y = e.clientY; }, {passive:true});
+      (function loop(){ cx += (x - cx) * .2; cy += (y - cy) * .2; cursor.style.transform = `translate(${cx}px,${cy}px)`; requestAnimationFrame(loop); })();
+      document.querySelectorAll('a,button,.service,.tile').forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+      });
+    }
+
+    /* =====================================================
+       ASSISTENTE VIRTUAL (base de conhecimento + agendamento)
+       ===================================================== */
+    const chat = document.getElementById('chat');
+    const chatBody = document.getElementById('chatBody');
+    const chatQuick = document.getElementById('chatQuick');
+    const chatForm = document.getElementById('chatForm');
+    const chatInput = document.getElementById('chatInput');
+    const chatToggle = document.getElementById('chatToggle');
+    const norm = s => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^\w\s]/g,' ');
+
+    const KB = [
+      { keys:['o que e microcimento','microcimento e','what is','o que é microcimento','microcimento what'],
+        a:'O microcimento é um revestimento cimentício de espessura fina, aplicado em camadas sobre o suporte existente. Ele cria superfícies contínuas, sem juntas, com aparência de concreto e grande versatilidade de tons.' },
+      { keys:['preco','valor','quanto custa','orcamento','custo','investimento','quanto fica','cotacao'],
+        a:'O investimento depende da metragem, do tipo de superfície, do acabamento escolhido e das condições do local. Por isso, cada projeto é avaliado em uma consultoria técnica, e o orçamento é personalizado. Posso agendar essa conversa para você.' },
+      { keys:['prazo','tempo','quanto tempo','demora','cronograma','entrega'],
+        a:'O prazo varia conforme a área, a complexidade e a quantidade de camadas. Após a consultoria, informamos um cronograma claro antes de iniciar.' },
+      { keys:['banheiro','area molhada','box','chuveiro','lavabo','molhad'],
+        a:'Aplicamos microcimento em banheiros e áreas molhadas com o sistema indicado para o uso. A especificação é definida na avaliação do local, pois depende da exposição à água e do tipo de suporte.' },
+      { keys:['cozinha','bancada','balcao','pia','ilha'],
+        a:'Trabalhamos com bancadas e revestimentos de cozinha em microcimento, com tons e veios personalizados para combinar com o restante do ambiente.' },
+      { keys:['piso','chao','pisos','porcelanato substituir'],
+        a:'Para pisos, o microcimento cria uma superfície contínua e resistente ao tráfego. A indicação do sistema considera o uso do espaço e o estado da base.' },
+      { keys:['parede','paredes','fachada','revestir parede'],
+        a:'Em paredes, o microcimento traz profundidade e textura sutil, do ambiente íntimo ao espaço de destaque. A intensidade do efeito é ajustada à iluminação do local.' },
+      { keys:['escada','degrau','degraus'],
+        a:'Escadas e ambientes integrados recebem continuidade visual entre pisos, degraus e paredes, criando fluidez entre os espaços.' },
+      { keys:['comercial','loja','escritorio','showroom','corporativo','empresa'],
+        a:'Para projetos comerciais, como lojas, escritórios e showrooms, desenvolvemos uma identidade visual marcante e uma solução de manutenção simples.' },
+      { keys:['cor','cores','tom','tons','tonalidade','personaliz','cartela','paleta'],
+        a:'Trabalhamos com personalização de tonalidades. Na consultoria, apresentamos a cartela e ajustamos o tom à luz e à paleta do seu imóvel.' },
+      { keys:['manutencao','limpeza','cuidado','conservar','limpar'],
+        a:'Na entrega, orientamos sobre uso e manutenção para preservar o acabamento por muito mais tempo. Os cuidados recomendados são explicados com clareza.' },
+      { keys:['garantia'],
+        a:'As condições de garantia são apresentadas por escrito junto ao orçamento, de acordo com o escopo de cada projeto.' },
+      { keys:['processo','como funciona','etapas','passo a passo','como e feito'],
+        a:'O processo tem cinco etapas: consultoria e planejamento, preparação da superfície, aplicação do microcimento, refinamento e acabamento, e entrega do projeto.' },
+      { keys:['onde','localizacao','endereco','atende','regiao','cidade','bairro'],
+        a:'O atendimento é em São Paulo e região, sempre sob agendamento. Se o seu imóvel fica em outra localidade, posso verificar a viabilidade pelo WhatsApp.' },
+      { keys:['instagram','insta','redes','portfolio','fotos','projetos'],
+        a:'Você pode conhecer os trabalhos no Instagram: @microcimentofino. Também posso enviar fotos de projetos pelo WhatsApp.' },
+      { keys:['oi','ola','bom dia','boa tarde','boa noite','tudo bem','e ai','eai'],
+        a:'Olá! Seja bem-vindo. Posso tirar suas dúvidas sobre microcimento ou agendar uma visita. Como posso ajudar?' },
+      { keys:['obrigad','valeu','brigad'],
+        a:'Por nada. Fico à disposição para o que precisar.' }
+    ];
+
+    const SCHEDULE_KEYS = ['agendar','agendamento','agenda','marcar','visita','horario','reuniao','falar com','atendente','especialista','consultoria','quero contratar'];
+
+    const state = { mode:null, step:0, data:{} };
+    const AREAS = ['Pisos','Paredes','Banheiro','Cozinha','Escada','Comercial','Outro'];
+    const PERIODS = ['Manhã','Tarde','Noite'];
+
+    function scrollBottom(){ chatBody.scrollTop = chatBody.scrollHeight; }
+
+    function addMsg(text, who, html){
+      const d = document.createElement('div');
+      d.className = 'msg ' + who;
+      if (html) d.innerHTML = html; else d.textContent = text;
+      chatBody.appendChild(d); scrollBottom(); return d;
+    }
+
+    function botSay(text, opts){
+      const typing = document.createElement('div');
+      typing.className = 'typing'; typing.innerHTML = '<i></i><i></i><i></i>';
+      chatBody.appendChild(typing); scrollBottom();
+      const delay = Math.min(900, 350 + text.length * 6);
+      setTimeout(() => {
+        typing.remove();
+        addMsg(text, 'bot');
+        setQuick(opts || []);
+      }, delay);
+    }
+
+    function setQuick(list){
+      chatQuick.innerHTML = '';
+      list.forEach(label => {
+        const b = document.createElement('button'); b.type = 'button'; b.textContent = label;
+        b.addEventListener('click', () => handleUser(label));
+        chatQuick.appendChild(b);
+      });
+    }
+
+    function startSchedule(){
+      state.mode = 'schedule'; state.step = 0; state.data = {};
+      botSay('Com prazer. Vou agendar uma visita técnica para você. Antes, preciso de algumas informações. Qual é o seu nome?', []);
+    }
+
+    function handleSchedule(text){
+      const v = text.trim();
+      if (!v) return;
+      if (state.step === 0) {
+        state.data.nome = v; state.step = 1;
+        botSay('Prazer, ' + v.split(' ')[0] + '! Qual tipo de ambiente você deseja revestir?', AREAS);
+      } else if (state.step === 1) {
+        state.data.area = v; state.step = 2;
+        botSay('Ótimo. Em qual cidade ou bairro fica o imóvel?', []);
+      } else if (state.step === 2) {
+        state.data.local = v; state.step = 3;
+        botSay('Qual dia e período você prefere para a visita?', PERIODS);
+      } else if (state.step === 3) {
+        state.data.periodo = v; state.step = 4;
+        const msg = `Olá, Josias! Gostaria de agendar uma visita técnica.\n` +
+          `Nome: ${state.data.nome}\nAmbiente: ${state.data.area}\nLocal: ${state.data.local}\nPreferência: ${state.data.periodo}`;
+        const url = WA_BASE + encodeURIComponent(msg);
+        addMsg(null, 'bot',
+          'Perfeito! Confirme o envio pelo WhatsApp para finalizar o seu agendamento.<br>' +
+          '<a class="wa-link" href="' + url + '" target="_blank" rel="noopener">Confirmar no WhatsApp</a>');
+        setQuick(['Tirar outra dúvida']);
+        state.mode = null; state.step = 0;
+      }
+    }
+
+    function answer(text){
+      const t = norm(text);
+      if (SCHEDULE_KEYS.some(k => t.includes(k))) { startSchedule(); return; }
+      let best = null, score = 0;
+      KB.forEach(item => {
+        const s = item.keys.reduce((acc, k) => acc + (t.includes(norm(k)) ? k.length : 0), 0);
+        if (s > score) { score = s; best = item; }
+      });
+      if (best) {
+        botSay(best.a, ['Agendar visita', 'Ver serviços', 'Falar no WhatsApp']);
+      } else {
+        botSay('Não tenho essa informação com precisão, e prefiro não arriscar uma resposta incorreta. Posso agendar uma conversa com o Josias para esclarecer. Deseja agendar?', ['Agendar visita', 'Falar no WhatsApp']);
+      }
+    }
+
+    function handleUser(text){
+      if (!text) return;
+      addMsg(text, 'user');
+      setQuick([]);
+      const t = norm(text);
+      if (t.includes('whatsapp') && !state.mode) {
+        botSay('Claro! Você pode falar diretamente com o Josias pelo WhatsApp.', []);
+        addMsg(null, 'bot', '<a class="wa-link" href="' + WA_BASE + encodeURIComponent('Olá, Josias! Vim pelo site e gostaria de conversar.') + '" target="_blank" rel="noopener">Abrir WhatsApp</a>');
+        return;
+      }
+      if (t === 'tirar outra duvida') { botSay('Claro, pode perguntar.', ['Agendar visita','Ver serviços','Falar no WhatsApp']); return; }
+      if (t === 'ver servicos') { botSay('Atendo pisos, paredes, banheiros e áreas molhadas, cozinhas e bancadas, escadas, e projetos comerciais e residenciais de luxo. Sobre qual deseja saber mais?', []); return; }
+      if (state.mode === 'schedule') { handleSchedule(text); return; }
+      answer(text);
+    }
+
+    chatToggle.addEventListener('click', () => toggleChat());
+    document.getElementById('chatClose').addEventListener('click', () => toggleChat(false));
+    document.querySelectorAll('[data-open-chat-schedule]').forEach(el => {
+      el.addEventListener('click', () => { /* mantém o link para #contato e também abre o assistente */ setTimeout(() => toggleChat(true), 600); });
+    });
+
+    let chatStarted = false;
+    function toggleChat(force){
+      const open = typeof force === 'boolean' ? force : !chat.classList.contains('open');
+      chat.classList.toggle('open', open);
+      chatToggle.setAttribute('aria-expanded', open);
+      if (open && !chatStarted) {
+        chatStarted = true;
+        botSay('Olá! Sou o assistente virtual do Josias Santos. Posso tirar dúvidas sobre microcimento ou agendar uma visita técnica pelo WhatsApp. Como posso ajudar?', ['O que é microcimento?','Quanto custa?','Agendar visita','Ver serviços']);
+      }
+      if (open) setTimeout(() => chatInput.focus(), 400);
+    }
+
+    chatForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const v = chatInput.value.trim();
+      if (!v) return;
+      chatInput.value = '';
+      handleUser(v);
+    });
+
+    /* Abre o assistente automaticamente após o intro (uma única vez) */
+    setTimeout(() => { if (!chat.classList.contains('open') && !chatStarted) toggleChat(true); }, 9000);
+  })();
+  </script>
+</body>
+</html>
